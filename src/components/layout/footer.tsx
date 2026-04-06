@@ -1,34 +1,80 @@
 import Link from "next/link";
-import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
-import { SEDES, CONTACT_INFO, NAV_LINKS } from "@/lib/constants";
+import Image from "next/image";
+import { Mail, Phone, MapPin, MessageCircle, CreditCard } from "lucide-react";
+import { SEDES, CONTACT_INFO, NAV_LINKS, PSE_URL } from "@/lib/constants";
 
 export function Footer() {
   return (
-    <footer className="bg-fundafast-blue-dark">
-      <div className="mx-auto max-w-7xl px-6 py-16">
-        <div className="grid gap-12 lg:grid-cols-4">
+    <footer className="bg-ff-blue-dark text-white">
+      {/* CTA Strip */}
+      <div className="bg-ff-red">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-6 sm:flex-row">
+          <div>
+            <p className="text-lg font-bold text-white">¿Listo para impulsar tu tienda?</p>
+            <p className="text-sm text-red-100">Solicita tu Credifast hoy — sin tramites, sin complicaciones.</p>
+          </div>
+          <div className="flex gap-3">
+            <a
+              href={PSE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 rounded-lg border border-white/60 px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-white hover:text-ff-red"
+            >
+              <CreditCard className="h-4 w-4" /> Pagar PSE
+            </a>
+            <Link
+              href="/creditos"
+              className="rounded-lg bg-white px-5 py-2.5 text-sm font-bold text-ff-red transition-all hover:bg-red-50"
+            >
+              Solicitar Crédito
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Footer */}
+      <div className="mx-auto max-w-7xl px-6 py-14">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
-          <div className="lg:col-span-1">
-            <h3 className="text-2xl font-bold text-white">FundaFast</h3>
-            <p className="mt-2 text-sm text-blue-200">S.A.S. - Su Socio en el Desarrollo</p>
+          <div>
+            <div className="flex items-center gap-2.5">
+              <Image
+                src="/images/logo-fundafast.png"
+                alt="FundaFast"
+                width={36}
+                height={36}
+                className="h-9 w-9 object-contain brightness-0 invert"
+              />
+              <span className="text-lg font-bold text-white">FundaFast</span>
+            </div>
             <p className="mt-4 text-sm leading-relaxed text-blue-200">
-              Contribuimos al desarrollo socioeconomico de los tenderos y sus familias en el
-              suroccidente colombiano.
+              Contribuimos al desarrollo socioeconomico de los tenderos y sus familias en el suroccidente colombiano.
             </p>
+            <div className="mt-5 flex gap-3">
+              <a
+                href={`https://wa.me/${CONTACT_INFO.whatsapp}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-blue-200 transition-colors hover:bg-white/20 hover:text-white"
+              >
+                <MessageCircle className="h-4 w-4" />
+              </a>
+              <a
+                href={`mailto:${CONTACT_INFO.email}`}
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-blue-200 transition-colors hover:bg-white/20 hover:text-white"
+              >
+                <Mail className="h-4 w-4" />
+              </a>
+            </div>
           </div>
 
           {/* Navigation */}
           <div>
-            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-blue-300">
-              Navegacion
-            </h4>
-            <ul className="space-y-2">
+            <h4 className="mb-4 text-xs font-bold uppercase tracking-widest text-blue-300">Navegación</h4>
+            <ul className="space-y-2.5">
               {NAV_LINKS.filter((l) => !("children" in l)).map((link) => (
                 <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-blue-200 transition-colors hover:text-white"
-                  >
+                  <Link href={link.href} className="text-sm text-blue-200 transition-colors hover:text-white">
                     {link.label}
                   </Link>
                 </li>
@@ -38,35 +84,18 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-blue-300">
-              Contacto
-            </h4>
+            <h4 className="mb-4 text-xs font-bold uppercase tracking-widest text-blue-300">Contacto</h4>
             <ul className="space-y-3">
-              <li className="flex items-center gap-2 text-sm text-blue-200">
-                <Mail className="h-4 w-4 shrink-0" />
-                <a href={`mailto:${CONTACT_INFO.email}`} className="hover:text-white transition-colors">
-                  {CONTACT_INFO.email}
-                </a>
+              <li className="flex items-start gap-2.5 text-sm text-blue-200">
+                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-blue-300" />
+                <a href={`mailto:${CONTACT_INFO.email}`} className="hover:text-white transition-colors break-all">{CONTACT_INFO.email}</a>
               </li>
-              <li className="flex items-center gap-2 text-sm text-blue-200">
-                <Phone className="h-4 w-4 shrink-0" />
-                <a href="tel:+573187171931" className="hover:text-white transition-colors">
-                  +57 318 717 1931
-                </a>
+              <li className="flex items-center gap-2.5 text-sm text-blue-200">
+                <Phone className="h-4 w-4 shrink-0 text-blue-300" />
+                <a href="tel:+573187171931" className="hover:text-white transition-colors">+57 318 717 1931</a>
               </li>
-              <li className="flex items-center gap-2 text-sm text-blue-200">
-                <MessageCircle className="h-4 w-4 shrink-0" />
-                <a
-                  href={`https://wa.me/${CONTACT_INFO.whatsapp}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-white transition-colors"
-                >
-                  WhatsApp
-                </a>
-              </li>
-              <li className="flex items-start gap-2 text-sm text-blue-200">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0" />
+              <li className="flex items-start gap-2.5 text-sm text-blue-200">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-blue-300" />
                 <span>{CONTACT_INFO.mainAddress}</span>
               </li>
             </ul>
@@ -74,22 +103,21 @@ export function Footer() {
 
           {/* Sedes */}
           <div>
-            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-blue-300">
-              Sedes
-            </h4>
+            <h4 className="mb-4 text-xs font-bold uppercase tracking-widest text-blue-300">Sedes</h4>
             <ul className="space-y-3">
               {SEDES.map((sede) => (
                 <li key={sede.city} className="text-sm text-blue-200">
-                  <span className="font-medium text-white">{sede.city}:</span>{" "}
-                  {sede.address}
+                  <span className="font-semibold text-white">{sede.city}</span>
+                  <p className="mt-0.5 text-xs leading-relaxed">{sede.address}</p>
                 </li>
               ))}
             </ul>
           </div>
         </div>
 
-        <div className="mt-12 border-t border-blue-800 pt-8 text-center text-sm text-blue-300">
-          &copy; {new Date().getFullYear()} FundaFast S.A.S. | Todos los derechos reservados
+        <div className="mt-12 flex flex-col items-center justify-between gap-2 border-t border-white/10 pt-6 text-xs text-blue-300 sm:flex-row">
+          <p>&copy; {new Date().getFullYear()} FundaFast S.A.S. | Todos los derechos reservados</p>
+          <p>Cali, Colombia — Ecosistema Distritiendas</p>
         </div>
       </div>
     </footer>

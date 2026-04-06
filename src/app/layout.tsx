@@ -1,17 +1,13 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 
-const inter = Inter({
+const ibmPlexSans = IBM_Plex_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
-});
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-playfair",
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-ibm-plex",
 });
 
 export const metadata: Metadata = {
@@ -20,22 +16,11 @@ export const metadata: Metadata = {
     template: "%s | FundaFast S.A.S.",
   },
   description:
-    "Contribuimos al desarrollo socioeconomico de los tenderos y sus familias con programas de financiamiento, seguros y capacitacion en el suroccidente colombiano.",
-  keywords: [
-    "FundaFast",
-    "microcredito",
-    "tenderos",
-    "tienda de barrio",
-    "Cali",
-    "Colombia",
-    "Distritiendas",
-    "creditos",
-    "seguros",
-  ],
+    "Microcreditos rapidos y seguros para tenderos colombianos. Credifast: facil aprobacion, cuotas flexibles, 4 sedes en el suroccidente.",
+  keywords: ["FundaFast", "Credifast", "microcredito", "tenderos", "Cali", "Colombia", "Distritiendas"],
   openGraph: {
     title: "FundaFast S.A.S. - Su Socio en el Desarrollo",
-    description:
-      "Microcreditos, seguros y apoyo integral para tenderos en el suroccidente colombiano.",
+    description: "Microcreditos para tenderos colombianos. Facil, rapido y cercano.",
     url: "https://www.fundafast.com.co",
     siteName: "FundaFast S.A.S.",
     locale: "es_CO",
@@ -43,16 +28,12 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es" className={`${inter.variable} ${playfair.variable}`}>
+    <html lang="es" className={ibmPlexSans.variable}>
       <body>
         <Navbar />
-        <main className="min-h-screen">{children}</main>
+        <main>{children}</main>
         <Footer />
       </body>
     </html>
