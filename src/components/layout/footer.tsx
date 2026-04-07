@@ -125,7 +125,7 @@ export function Footer() {
               rel="noopener noreferrer"
               className="hover:text-white transition-colors"
             >
-              Sere Studio Branding
+              Ser Studio Branding
             </a>
           </p>
         </div>
