@@ -130,11 +130,17 @@ export default function HomePage() {
       <AnimationsLoader />
 
       {/* ─── HERO ─── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-ff-blue-dark via-ff-blue to-blue-600">
-        {/* Background pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute -right-20 -top-20 h-96 w-96 rounded-full bg-white/20 blur-3xl" />
-          <div className="absolute -bottom-10 left-1/3 h-64 w-64 rounded-full bg-ff-red/30 blur-3xl" />
+      <section className="relative overflow-hidden bg-ff-blue-dark">
+        {/* Background photo */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/hero-tendero.jpg"
+            alt="Tendero colombiano en su tienda de barrio"
+            fill
+            className="object-cover object-center opacity-25"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-ff-blue-dark/95 via-ff-blue-dark/80 to-ff-blue-dark/40" />
         </div>
 
         <div className="relative mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:py-28">

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { HeroSection } from "@/components/hero-section";
 import { SectionHeader } from "@/components/section-header";
 import { Target, Eye, CheckCircle } from "lucide-react";
@@ -67,10 +68,13 @@ export default function QuienesSomosPage() {
                 garantizando la solidez y permanencia de la entidad en el tiempo.
               </p>
             </div>
-            <div className="flex items-center justify-center">
-              <div className="h-64 w-64 rounded-full bg-gradient-to-br from-ff-blue/20 to-ff-blue-light/10 flex items-center justify-center">
-                <Target className="h-24 w-24 text-ff-blue/40" />
-              </div>
+            <div className="relative h-80 w-full overflow-hidden rounded-2xl shadow-xl lg:h-96">
+              <Image
+                src="/images/mision-tenderos.jpg"
+                alt="Familia tendera frente a su tienda de barrio"
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
         </div>
@@ -80,10 +84,13 @@ export default function QuienesSomosPage() {
       <section className="bg-ff-surface py-20">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid items-center gap-12 lg:grid-cols-2">
-            <div className="order-2 lg:order-1 flex items-center justify-center">
-              <div className="h-64 w-64 rounded-full bg-gradient-to-br from-ff-red/20 to-amber-100 flex items-center justify-center">
-                <Eye className="h-24 w-24 text-ff-red/40" />
-              </div>
+            <div className="order-2 lg:order-1 relative h-80 w-full overflow-hidden rounded-2xl shadow-xl lg:h-96">
+              <Image
+                src="/images/vision-crecimiento.jpg"
+                alt="Tendero revisando documentos financieros en su tienda"
+                fill
+                className="object-cover"
+              />
             </div>
             <div className="order-1 lg:order-2">
               <div className="mb-4 inline-flex rounded-xl bg-ff-red/10 p-3">
