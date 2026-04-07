@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, Phone, MapPin, MessageCircle, CreditCard } from "lucide-react";
+import { Mail, Phone, MapPin, MessageCircle, CreditCard, Heart } from "lucide-react";
 import { SEDES, CONTACT_INFO, NAV_LINKS, PSE_URL } from "@/lib/constants";
 
 export function Footer() {
@@ -117,7 +117,17 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-2 border-t border-white/10 pt-6 text-xs text-blue-300 sm:flex-row">
           <p suppressHydrationWarning>&copy; {new Date().getFullYear()} FundaFast S.A.S. | Todos los derechos reservados</p>
-          <p>Cali, Colombia — Ecosistema Distritiendas</p>
+          <p className="flex items-center gap-1.5">
+            Hecho con <Heart className="h-3.5 w-3.5 fill-ff-red text-ff-red" /> por{" "}
+            <a
+              href="https://serestudiobranding.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors"
+            >
+              Sere Studio Branding
+            </a>
+          </p>
         </div>
       </div>
     </footer>
