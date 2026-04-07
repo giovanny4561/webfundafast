@@ -3,6 +3,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  /* Nueva paleta ff-* */
   --color-ff-blue: #1E40AF;
   --color-ff-blue-light: #3B82F6;
   --color-ff-blue-dark: #1E3A5F;
@@ -13,6 +14,17 @@
   --color-ff-text: #0F172A;
   --color-ff-text-muted: #475569;
   --color-ff-white: #FFFFFF;
+
+  /* Aliases fundafast-* → ff-* para compatibilidad con componentes existentes */
+  --color-fundafast-blue: #1E40AF;
+  --color-fundafast-blue-light: #3B82F6;
+  --color-fundafast-blue-dark: #1E3A5F;
+  --color-fundafast-orange: #DC2626;
+  --color-fundafast-orange-hover: #B91C1C;
+  --color-fundafast-surface: #EFF6FF;
+  --color-fundafast-text: #0F172A;
+  --color-fundafast-text-secondary: #475569;
+
   --font-sans: var(--font-ibm-plex);
 }
 

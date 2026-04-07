@@ -20,11 +20,11 @@ export function CTAButton({
 
   const variants = {
     primary:
-      "bg-fundafast-orange text-white hover:bg-fundafast-orange-hover focus:ring-fundafast-orange shadow-lg hover:shadow-xl",
+      "bg-ff-red text-white hover:bg-ff-red-hover focus:ring-ff-red shadow-lg hover:shadow-xl",
     secondary:
-      "bg-fundafast-blue text-white hover:bg-fundafast-blue-light focus:ring-fundafast-blue",
+      "bg-ff-blue text-white hover:bg-ff-blue-light focus:ring-ff-blue",
     outline:
-      "border-2 border-white text-white hover:bg-white hover:text-fundafast-blue-dark",
+      "border-2 border-white text-white hover:bg-white hover:text-ff-blue-dark",
   };
 
   const sizes = {

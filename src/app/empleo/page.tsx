@@ -20,7 +20,7 @@ export default function EmpleoPage() {
       <section className="py-20">
         <div className="mx-auto max-w-4xl px-6">
           <div className="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm sm:p-12">
-            <div className="mb-6 inline-flex rounded-xl bg-fundafast-blue/10 p-3">
+            <div className="mb-6 inline-flex rounded-xl bg-ff-blue/10 p-3">
               <Briefcase className="h-8 w-8 text-fundafast-blue" />
             </div>
 

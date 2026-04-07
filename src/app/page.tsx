@@ -15,10 +15,10 @@ const BENEFITS = [
 ];
 
 const STATS = [
-  { number: "4", label: "Sedes activas" },
-  { number: "10+", label: "Anos de experiencia" },
-  { number: "1000s", label: "Tenderos atendidos" },
-  { number: "100%", label: "Respaldo Distritiendas" },
+  { number: "4", label: "Sedes en Colombia" },
+  { number: "Cali", label: "Pasto · Palmira · Pereira" },
+  { number: "PSE", label: "Pago seguro en linea" },
+  { number: "100%", label: "Ecosistema Distritiendas" },
 ];
 
 const HOW_IT_WORKS = [

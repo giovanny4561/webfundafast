@@ -25,7 +25,10 @@ export function HeroSection({
   overlay = true,
 }: HeroSectionProps) {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-fundafast-blue-dark via-fundafast-blue to-fundafast-blue-light">
+    <section
+      className="relative overflow-hidden"
+      style={{ background: "linear-gradient(135deg, #1E3A5F 0%, #1E40AF 60%, #3B82F6 100%)" }}
+    >
       {imageSrc && (
         <Image
           src={imageSrc}
@@ -36,18 +39,21 @@ export function HeroSection({
         />
       )}
       {overlay && (
-        <div className="absolute inset-0 bg-gradient-to-r from-fundafast-blue-dark/90 to-fundafast-blue/70" />
+        <div
+          className="absolute inset-0"
+          style={{ background: "linear-gradient(90deg, rgba(30,58,95,0.92) 0%, rgba(30,64,175,0.70) 100%)" }}
+        />
       )}
-      <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:py-40">
+      <div className="relative mx-auto max-w-7xl px-6 py-16 sm:py-20 lg:py-24">
         <div className="max-w-2xl">
-          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+          <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
             {title}
           </h1>
-          <p className="mt-6 text-lg leading-relaxed text-blue-100 sm:text-xl">
+          <p className="mt-4 text-base leading-relaxed text-blue-100 sm:text-lg">
             {subtitle}
           </p>
           {ctaLabel && ctaHref && (
-            <div className="mt-10 flex flex-wrap gap-4">
+            <div className="mt-8 flex flex-wrap gap-3">
               <CTAButton href={ctaHref} variant={ctaVariant} size="lg">
                 {ctaLabel}
               </CTAButton>

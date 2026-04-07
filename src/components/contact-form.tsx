@@ -41,7 +41,7 @@ export function ContactForm() {
           name="name"
           type="text"
           required
-          className="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm transition-colors focus:border-fundafast-blue focus:outline-none focus:ring-2 focus:ring-fundafast-blue/20"
+          className="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm transition-colors focus:border-ff-blue focus:outline-none focus:ring-2 focus:ring-ff-blue/20"
           placeholder="Tu nombre"
         />
       </div>
@@ -54,7 +54,7 @@ export function ContactForm() {
           name="phone"
           type="tel"
           required
-          className="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm transition-colors focus:border-fundafast-blue focus:outline-none focus:ring-2 focus:ring-fundafast-blue/20"
+          className="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm transition-colors focus:border-ff-blue focus:outline-none focus:ring-2 focus:ring-ff-blue/20"
           placeholder="300 123 4567"
         />
       </div>
@@ -67,7 +67,7 @@ export function ContactForm() {
           name="subject"
           type="text"
           required
-          className="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm transition-colors focus:border-fundafast-blue focus:outline-none focus:ring-2 focus:ring-fundafast-blue/20"
+          className="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm transition-colors focus:border-ff-blue focus:outline-none focus:ring-2 focus:ring-ff-blue/20"
           placeholder="Asunto de tu mensaje"
         />
       </div>
@@ -80,7 +80,7 @@ export function ContactForm() {
           name="message"
           rows={5}
           required
-          className="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm transition-colors focus:border-fundafast-blue focus:outline-none focus:ring-2 focus:ring-fundafast-blue/20 resize-none"
+          className="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm transition-colors focus:border-ff-blue focus:outline-none focus:ring-2 focus:ring-ff-blue/20 resize-none"
           placeholder="Escribe tu mensaje aqui..."
         />
       </div>

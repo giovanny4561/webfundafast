@@ -36,7 +36,7 @@ export default function ContactoPage() {
               <h2 className="text-2xl font-bold text-fundafast-text">Informacion de Contacto</h2>
               <div className="mt-8 space-y-6">
                 <div className="flex items-center gap-4 rounded-xl bg-fundafast-surface p-5">
-                  <div className="rounded-lg bg-fundafast-blue/10 p-3">
+                  <div className="rounded-lg bg-ff-blue/10 p-3">
                     <Mail className="h-5 w-5 text-fundafast-blue" />
                   </div>
                   <div>
@@ -50,7 +50,7 @@ export default function ContactoPage() {
                   </div>
                 </div>
                 <div className="flex items-center gap-4 rounded-xl bg-fundafast-surface p-5">
-                  <div className="rounded-lg bg-fundafast-blue/10 p-3">
+                  <div className="rounded-lg bg-ff-blue/10 p-3">
                     <Phone className="h-5 w-5 text-fundafast-blue" />
                   </div>
                   <div>

@@ -31,24 +31,24 @@ export default function QuienesSomosPage() {
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
-              <div className="mb-4 inline-flex rounded-xl bg-fundafast-blue/10 p-3">
-                <Target className="h-8 w-8 text-fundafast-blue" />
+              <div className="mb-4 inline-flex rounded-xl bg-ff-blue/10 p-3">
+                <Target className="h-8 w-8 text-ff-blue" />
               </div>
-              <h2 className="text-3xl font-bold text-fundafast-text">Nuestra Mision</h2>
-              <p className="mt-4 text-lg leading-relaxed text-fundafast-text-secondary">
+              <h2 className="text-3xl font-bold text-ff-text">Nuestra Mision</h2>
+              <p className="mt-4 text-lg leading-relaxed text-ff-text-muted">
                 Contribuir al desarrollo socioeconomico de los clientes de Distritiendas y sus
                 familias a traves de programas de financiamiento y capacitacion acordes a sus
                 necesidades.
               </p>
-              <p className="mt-4 text-fundafast-text-secondary leading-relaxed">
+              <p className="mt-4 text-ff-text-muted leading-relaxed">
                 Disponemos de procesos amables y adecuados que le permiten al tendero alcanzar
                 sus metas, ofreciendo un ambiente laboral agradable para nuestros colaboradores y
                 garantizando la solidez y permanencia de la entidad en el tiempo.
               </p>
             </div>
             <div className="flex items-center justify-center">
-              <div className="h-64 w-64 rounded-full bg-gradient-to-br from-fundafast-blue/20 to-fundafast-blue-light/10 flex items-center justify-center">
-                <Target className="h-24 w-24 text-fundafast-blue/40" />
+              <div className="h-64 w-64 rounded-full bg-gradient-to-br from-ff-blue/20 to-ff-blue-light/10 flex items-center justify-center">
+                <Target className="h-24 w-24 text-ff-blue/40" />
               </div>
             </div>
           </div>
@@ -56,20 +56,20 @@ export default function QuienesSomosPage() {
       </section>
 
       {/* Vision */}
-      <section className="bg-fundafast-surface py-20">
+      <section className="bg-ff-surface py-20">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div className="order-2 lg:order-1 flex items-center justify-center">
-              <div className="h-64 w-64 rounded-full bg-gradient-to-br from-fundafast-orange/20 to-amber-100 flex items-center justify-center">
-                <Eye className="h-24 w-24 text-fundafast-orange/40" />
+              <div className="h-64 w-64 rounded-full bg-gradient-to-br from-ff-red/20 to-amber-100 flex items-center justify-center">
+                <Eye className="h-24 w-24 text-ff-red/40" />
               </div>
             </div>
             <div className="order-1 lg:order-2">
-              <div className="mb-4 inline-flex rounded-xl bg-fundafast-orange/10 p-3">
-                <Eye className="h-8 w-8 text-fundafast-orange" />
+              <div className="mb-4 inline-flex rounded-xl bg-ff-red/10 p-3">
+                <Eye className="h-8 w-8 text-ff-red" />
               </div>
-              <h2 className="text-3xl font-bold text-fundafast-text">Nuestra Vision</h2>
-              <p className="mt-4 text-lg leading-relaxed text-fundafast-text-secondary">
+              <h2 className="text-3xl font-bold text-ff-text">Nuestra Vision</h2>
+              <p className="mt-4 text-lg leading-relaxed text-ff-text-muted">
                 Ser reconocidos en el 2026 como una entidad especializada en el gremio de los
                 tenderos con cobertura en el suroccidente colombiano.
               </p>
@@ -92,7 +92,7 @@ export default function QuienesSomosPage() {
                 className="flex items-start gap-3 rounded-xl border border-gray-100 bg-white p-6 shadow-sm"
               >
                 <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-green-500" />
-                <p className="text-fundafast-text-secondary">{obj}</p>
+                <p className="text-ff-text-muted">{obj}</p>
               </div>
             ))}
           </div>
