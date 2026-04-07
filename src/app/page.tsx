@@ -14,6 +14,7 @@ import {
   buildLocalBusinessSchemas,
   buildFaqSchema,
 } from "@/lib/schema";
+import { AnimationsLoader } from "@/components/animations/animations-loader";
 
 const BENEFITS = [
   { icon: CheckCircle, text: "Fácil aprobación" },
@@ -125,6 +126,9 @@ export default function HomePage() {
       <SchemaScript schema={buildLocalBusinessSchemas()} />
       <SchemaScript schema={buildFaqSchema(FAQS)} />
 
+      {/* ─── ANIMATIONS (client-only, no SSR) ─── */}
+      <AnimationsLoader />
+
       {/* ─── HERO ─── */}
       <section className="relative overflow-hidden bg-gradient-to-br from-ff-blue-dark via-ff-blue to-blue-600">
         {/* Background pattern */}
@@ -138,25 +142,25 @@ export default function HomePage() {
             {/* Left */}
             <div>
               {/* Badge */}
-              <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium text-blue-100 backdrop-blur-sm">
+              <div className="anim-hero-badge mb-5 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium text-blue-100 backdrop-blur-sm">
                 <Star className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400" />
                 Socio oficial del ecosistema Distritiendas
               </div>
 
-              <h1 className="text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+              <h1 className="anim-hero-h1 text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
                 El crédito que
                 <span className="block text-ff-red"> tu tienda </span>
                 necesita
               </h1>
 
-              <p className="mt-5 text-lg leading-relaxed text-blue-100 sm:text-xl">
+              <p className="anim-hero-sub mt-5 text-lg leading-relaxed text-blue-100 sm:text-xl">
                 Microcréditos rápidos, seguros y diseñados para tenderos colombianos. Sin trámites complicados — solo el impulso que tu negocio merece.
               </p>
 
               {/* Benefit badges */}
               <div className="mt-7 flex flex-wrap gap-3">
                 {BENEFITS.map((b) => (
-                  <div key={b.text} className="flex items-center gap-1.5 rounded-full bg-white/10 px-3.5 py-1.5 text-sm text-blue-100 backdrop-blur-sm">
+                  <div key={b.text} className="anim-hero-benefit flex items-center gap-1.5 rounded-full bg-white/10 px-3.5 py-1.5 text-sm text-blue-100 backdrop-blur-sm">
                     <b.icon className="h-3.5 w-3.5 text-green-400" />
                     {b.text}
                   </div>
@@ -167,14 +171,14 @@ export default function HomePage() {
               <div className="mt-9 flex flex-wrap gap-3">
                 <Link
                   href="/creditos"
-                  className="inline-flex items-center gap-2 rounded-xl bg-ff-red px-7 py-3.5 text-base font-bold text-white shadow-lg shadow-red-900/30 transition-all hover:bg-ff-red-hover hover:shadow-xl"
+                  className="anim-hero-cta inline-flex items-center gap-2 rounded-xl bg-ff-red px-7 py-3.5 text-base font-bold text-white shadow-lg shadow-red-900/30 transition-all hover:bg-ff-red-hover hover:shadow-xl"
                 >
                   Solicitar Credifast
                   <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link
                   href="/quienes-somos"
-                  className="inline-flex items-center gap-2 rounded-xl border-2 border-white/30 px-7 py-3.5 text-base font-semibold text-white backdrop-blur-sm transition-all hover:border-white/60 hover:bg-white/10"
+                  className="anim-hero-cta inline-flex items-center gap-2 rounded-xl border-2 border-white/30 px-7 py-3.5 text-base font-semibold text-white backdrop-blur-sm transition-all hover:border-white/60 hover:bg-white/10"
                 >
                   Conocenos
                 </Link>
@@ -183,7 +187,7 @@ export default function HomePage() {
 
             {/* Right — Quick Action Card */}
             <div className="hidden lg:flex lg:justify-end">
-              <div className="w-full max-w-sm rounded-2xl bg-white/10 p-7 backdrop-blur-md border border-white/20">
+              <div className="anim-hero-card w-full max-w-sm rounded-2xl bg-white/10 p-7 backdrop-blur-md border border-white/20">
                 <p className="text-sm font-semibold uppercase tracking-wider text-blue-200">Accesos rapidos</p>
                 <h3 className="mt-2 text-xl font-bold text-white">¿Que necesitas hoy?</h3>
                 <div className="mt-6 space-y-3">
@@ -225,15 +229,27 @@ export default function HomePage() {
       </section>
 
       {/* ─── STATS BAR ─── */}
-      <section className="bg-ff-blue">
+      <section className="anim-stats-bar bg-ff-blue">
         <div className="mx-auto max-w-7xl px-6 py-7">
           <div className="grid grid-cols-2 gap-6 sm:grid-cols-4">
-            {STATS.map((s) => (
-              <div key={s.label} className="text-center">
-                <p className="text-3xl font-bold text-white">{s.number}</p>
-                <p className="mt-1 text-sm text-blue-200">{s.label}</p>
-              </div>
-            ))}
+            {STATS.map((s) => {
+              const isNumeric = !isNaN(parseFloat(s.number.replace(/[^0-9.]/g, "")));
+              return (
+                <div key={s.label} className="text-center">
+                  {isNumeric ? (
+                    <p
+                      className="anim-stat-number text-3xl font-bold text-white"
+                      data-value={s.number}
+                    >
+                      {s.number}
+                    </p>
+                  ) : (
+                    <p className="anim-stat-text text-3xl font-bold text-white">{s.number}</p>
+                  )}
+                  <p className="anim-stat-text mt-1 text-sm text-blue-200">{s.label}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -241,7 +257,7 @@ export default function HomePage() {
       {/* ─── SERVICIOS ─── */}
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="text-center">
+          <div className="anim-heading text-center">
             <span className="inline-block rounded-full bg-ff-surface px-4 py-1 text-xs font-bold uppercase tracking-widest text-ff-blue">Nuestros Servicios</span>
             <h2 className="mt-3 text-3xl font-bold text-ff-text sm:text-4xl">Todo lo que necesita tu tienda</h2>
             <p className="mx-auto mt-4 max-w-xl text-ff-text-muted">Soluciones financieras y de protección diseñadas para el gremio tendero colombiano.</p>
@@ -257,7 +273,7 @@ export default function HomePage() {
               <Link
                 key={s.title}
                 href={s.href}
-                className="group rounded-2xl border border-slate-100 bg-white p-7 shadow-sm transition-all duration-300 hover:border-ff-blue/20 hover:shadow-lg hover:-translate-y-1"
+                className="anim-batch group rounded-2xl border border-slate-100 bg-white p-7 shadow-sm transition-all duration-300 hover:border-ff-blue/20 hover:shadow-lg hover:-translate-y-1"
               >
                 <div className={`mb-5 inline-flex rounded-xl p-3 ${s.color}`}>
                   <s.icon className="h-6 w-6" />
@@ -277,17 +293,17 @@ export default function HomePage() {
       {/* ─── COMO FUNCIONA ─── */}
       <section className="bg-ff-surface py-20">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="text-center">
+          <div className="anim-heading text-center">
             <span className="inline-block rounded-full bg-white px-4 py-1 text-xs font-bold uppercase tracking-widest text-ff-blue">Cómo Funciona</span>
             <h2 className="mt-3 text-3xl font-bold text-ff-text sm:text-4xl">Tres pasos para tu crédito</h2>
           </div>
 
           <div className="relative mt-14">
             {/* Connector line */}
-            <div className="absolute left-0 right-0 top-8 hidden h-px bg-gradient-to-r from-transparent via-ff-blue/30 to-transparent lg:block" />
+            <div className="anim-connector absolute left-0 right-0 top-8 hidden h-px bg-gradient-to-r from-transparent via-ff-blue/30 to-transparent lg:block" />
             <div className="grid gap-8 lg:grid-cols-3">
               {HOW_IT_WORKS.map((step, i) => (
-                <div key={step.step} className="relative flex flex-col items-center text-center">
+                <div key={step.step} className="anim-step relative flex flex-col items-center text-center">
                   <div className={`relative z-10 flex h-16 w-16 items-center justify-center rounded-2xl font-extrabold text-xl shadow-lg ${i === 0 ? "bg-ff-red text-white shadow-red-200" : "bg-ff-blue text-white shadow-blue-200"}`}>
                     {step.step}
                   </div>
@@ -335,7 +351,7 @@ export default function HomePage() {
       {/* ─── SEDES ─── */}
       <section className="bg-ff-blue-dark py-20">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="text-center">
+          <div className="anim-heading text-center">
             <span className="inline-block rounded-full bg-white/10 px-4 py-1 text-xs font-bold uppercase tracking-widest text-blue-300">Cobertura</span>
             <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">Estamos cerca de ti</h2>
             <p className="mt-3 text-blue-200">4 sedes en el suroccidente colombiano</p>
@@ -343,7 +359,7 @@ export default function HomePage() {
 
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {SEDES.map((sede) => (
-              <div key={sede.city} className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all hover:bg-white/10">
+              <div key={sede.city} className="anim-batch rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all hover:bg-white/10">
                 <div className="mb-3 flex items-center gap-2">
                   <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-ff-red">
                     <MapPin className="h-4 w-4 text-white" />
@@ -372,7 +388,7 @@ export default function HomePage() {
       {/* ─── REQUISITOS ─── */}
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="text-center">
+          <div className="anim-heading text-center">
             <span className="inline-block rounded-full bg-ff-surface px-4 py-1 text-xs font-bold uppercase tracking-widest text-ff-blue">Requisitos</span>
             <h2 className="mt-3 text-3xl font-bold text-ff-text sm:text-4xl">¿Qué necesitas para solicitar tu crédito?</h2>
             <p className="mx-auto mt-4 max-w-xl text-ff-text-muted">
@@ -381,7 +397,7 @@ export default function HomePage() {
           </div>
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {REQUIREMENTS.map((req, i) => (
-              <div key={req.title} className="relative rounded-2xl border border-slate-100 bg-white p-7 shadow-sm">
+              <div key={req.title} className="anim-batch relative rounded-2xl border border-slate-100 bg-white p-7 shadow-sm">
                 <div className="mb-1 text-3xl font-black text-slate-100 absolute top-5 right-6">0{i + 1}</div>
                 <div className="mb-4 inline-flex rounded-xl bg-ff-surface p-3">
                   <req.icon className="h-6 w-6 text-ff-blue" />
@@ -406,7 +422,7 @@ export default function HomePage() {
       {/* ─── POR QUÉ FUNDAFAST ─── */}
       <section className="bg-ff-blue-dark py-20">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="text-center">
+          <div className="anim-heading text-center">
             <span className="inline-block rounded-full bg-white/10 px-4 py-1 text-xs font-bold uppercase tracking-widest text-blue-300">¿Por qué elegirnos?</span>
             <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">Lo que nos hace diferentes</h2>
             <p className="mx-auto mt-4 max-w-xl text-blue-200">
@@ -415,7 +431,7 @@ export default function HomePage() {
           </div>
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {WHY_US.map((item) => (
-              <div key={item.title} className="rounded-2xl border border-white/10 bg-white/5 p-7 backdrop-blur-sm transition-all hover:bg-white/10">
+              <div key={item.title} className="anim-batch rounded-2xl border border-white/10 bg-white/5 p-7 backdrop-blur-sm transition-all hover:bg-white/10">
                 <div className={`mb-5 inline-flex rounded-xl p-3 ${item.color}`}>
                   <item.icon className="h-6 w-6" />
                 </div>
@@ -430,7 +446,7 @@ export default function HomePage() {
       {/* ─── FAQ ─── */}
       <section className="py-20">
         <div className="mx-auto max-w-3xl px-6">
-          <div className="text-center">
+          <div className="anim-heading text-center">
             <span className="inline-block rounded-full bg-ff-surface px-4 py-1 text-xs font-bold uppercase tracking-widest text-ff-blue">Preguntas frecuentes</span>
             <h2 className="mt-3 text-3xl font-bold text-ff-text sm:text-4xl">Resolvemos tus dudas</h2>
           </div>
@@ -457,13 +473,13 @@ export default function HomePage() {
       {/* ─── FINAL CTA ─── */}
       <section className="bg-gradient-to-r from-ff-red to-red-700 py-16">
         <div className="mx-auto max-w-4xl px-6 text-center">
-          <h2 className="text-3xl font-bold text-white sm:text-4xl">
+          <h2 className="anim-final-cta text-3xl font-bold text-white sm:text-4xl">
             ¿Tu tienda necesita un impulso?
           </h2>
-          <p className="mt-4 text-lg text-red-100">
-            Solicita tu Credifast hoy. Sin tramites, sin complicaciones. Solo el capital que necesitas para crecer.
+          <p className="anim-final-cta mt-4 text-lg text-red-100">
+            Solicita tu Credifast hoy. Sin trámites, sin complicaciones. Solo el capital que necesitas para crecer.
           </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
+          <div className="anim-final-cta mt-8 flex flex-wrap justify-center gap-4">
             <Link
               href="/creditos"
               className="rounded-xl bg-white px-8 py-3.5 text-base font-bold text-ff-red transition-all hover:bg-red-50 hover:shadow-lg"
