@@ -36,6 +36,8 @@ yarn-error.log*
 # vercel
 .vercel
 
+# firecrawl outputs & scripts (may contain API keys)
+.firecrawl/
 # typescript
 *.tsbuildinfo
 next-env.d.ts
