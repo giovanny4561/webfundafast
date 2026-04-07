@@ -180,7 +180,7 @@ export default function HomePage() {
                   href="/quienes-somos"
                   className="anim-hero-cta inline-flex items-center gap-2 rounded-xl border-2 border-white/30 px-7 py-3.5 text-base font-semibold text-white backdrop-blur-sm transition-all hover:border-white/60 hover:bg-white/10"
                 >
-                  Conocenos
+                  Conócenos
                 </Link>
               </div>
             </div>
@@ -188,8 +188,8 @@ export default function HomePage() {
             {/* Right — Quick Action Card */}
             <div className="hidden lg:flex lg:justify-end">
               <div className="anim-hero-card w-full max-w-sm rounded-2xl bg-white/10 p-7 backdrop-blur-md border border-white/20">
-                <p className="text-sm font-semibold uppercase tracking-wider text-blue-200">Accesos rapidos</p>
-                <h3 className="mt-2 text-xl font-bold text-white">¿Que necesitas hoy?</h3>
+                <p className="text-sm font-semibold uppercase tracking-wider text-blue-200">Accesos rápidos</p>
+                <h3 className="mt-2 text-xl font-bold text-white">¿Qué necesitas hoy?</h3>
                 <div className="mt-6 space-y-3">
                   <Link
                     href="/creditos"
@@ -204,7 +204,7 @@ export default function HomePage() {
                     rel="noopener noreferrer"
                     className="flex items-center justify-between rounded-xl bg-white/10 px-5 py-3.5 text-sm font-semibold text-white transition-all hover:bg-white/20 border border-white/20"
                   >
-                    <span className="flex items-center gap-2"><BadgeCheck className="h-4 w-4" /> Pagar mi credito (PSE)</span>
+                    <span className="flex items-center gap-2"><BadgeCheck className="h-4 w-4" /> Pagar mi crédito (PSE)</span>
                     <ChevronRight className="h-4 w-4" />
                   </a>
                   <Link
@@ -263,7 +263,7 @@ export default function HomePage() {
             <p className="mx-auto mt-4 max-w-xl text-ff-text-muted">Soluciones financieras y de protección diseñadas para el gremio tendero colombiano.</p>
           </div>
 
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="anim-grid mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { icon: Zap, title: "Credifast", desc: "Microcréditos rápidos para reabastecer inventario, expandir tu local o cubrir imprevistos.", href: "/creditos", color: "text-ff-red bg-red-50" },
               { icon: Handshake, title: "Su Solución", desc: "Crédito exclusivo para empleados de FundaFast y Distritiendas con descuento por nómina.", href: "/creditos", color: "text-ff-blue bg-ff-surface" },
@@ -357,7 +357,7 @@ export default function HomePage() {
             <p className="mt-3 text-blue-200">4 sedes en el suroccidente colombiano</p>
           </div>
 
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="anim-grid mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {SEDES.map((sede) => (
               <div key={sede.city} className="anim-batch rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all hover:bg-white/10">
                 <div className="mb-3 flex items-center gap-2">
@@ -395,7 +395,7 @@ export default function HomePage() {
               Sin papeleos complicados. Solo los básicos para que podamos conocerte y apoyar tu negocio.
             </p>
           </div>
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="anim-grid mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {REQUIREMENTS.map((req, i) => (
               <div key={req.title} className="anim-batch relative rounded-2xl border border-slate-100 bg-white p-7 shadow-sm">
                 <div className="mb-1 text-3xl font-black text-slate-100 absolute top-5 right-6">0{i + 1}</div>
@@ -429,7 +429,7 @@ export default function HomePage() {
               No somos un banco. Somos una financiera hecha por y para el gremio tendero colombiano.
             </p>
           </div>
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="anim-grid mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {WHY_US.map((item) => (
               <div key={item.title} className="anim-batch rounded-2xl border border-white/10 bg-white/5 p-7 backdrop-blur-sm transition-all hover:bg-white/10">
                 <div className={`mb-5 inline-flex rounded-xl p-3 ${item.color}`}>

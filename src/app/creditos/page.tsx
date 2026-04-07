@@ -3,13 +3,15 @@ import Image from "next/image";
 import { HeroSection } from "@/components/hero-section";
 import { SectionHeader } from "@/components/section-header";
 import { CREDIT_PRODUCTS } from "@/lib/constants";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, Store, Handshake, type LucideIcon } from "lucide-react";
 import { SchemaScript } from "@/components/schema-script";
 import {
   buildBreadcrumbSchema,
   buildCreditProductSchemas,
   buildWebPageSchema,
 } from "@/lib/schema";
+
+const ICON_MAP: Record<string, LucideIcon> = { Store, Handshake };
 
 export const metadata: Metadata = {
   title: "Créditos para Tenderos en Colombia",
@@ -23,14 +25,14 @@ const DOMAIN = "https://www.fundafast.com.co";
 export default function CreditosPage() {
   const breadcrumb = buildBreadcrumbSchema([
     { name: "Inicio", url: DOMAIN },
-    { name: "Creditos", url: `${DOMAIN}/creditos` },
+    { name: "Créditos", url: `${DOMAIN}/creditos` },
   ]);
 
   const webpage = buildWebPageSchema({
     url: `${DOMAIN}/creditos`,
-    name: "Creditos — FundaFast S.A.S.",
+    name: "Créditos — FundaFast S.A.S.",
     description:
-      "Microcreditos rapidos, creditos por nomina y financiacion con aliados estrategicos para tenderos colombianos.",
+      "Microcréditos rápidos, créditos por nómina y financiación con aliados estratégicos para tenderos colombianos.",
   });
 
   const creditProducts = buildCreditProductSchemas();
@@ -43,9 +45,9 @@ export default function CreditosPage() {
       <SchemaScript schema={creditProducts} />
 
       <HeroSection
-        title="Productos de Credito"
-        subtitle="Encuentra la solucion financiera perfecta para tus necesidades personales y empresariales."
-        ctaLabel="Solicitar Ahora"
+        title="Productos de Crédito"
+        subtitle="Encuentra la solución financiera perfecta para las necesidades de tu tienda."
+        ctaLabel="Solicitar ahora"
         ctaHref="#productos"
       />
 
@@ -53,46 +55,53 @@ export default function CreditosPage() {
       <section id="productos" className="py-20">
         <div className="mx-auto max-w-7xl px-6">
           <SectionHeader
-            title="Soluciones de Financiacion Propias"
-            subtitle="Creditos disenados especialmente para ti."
+            title="Soluciones de Financiación Propias"
+            subtitle="Créditos diseñados especialmente para tenderos y comerciantes colombianos."
           />
           <div className="mt-14 grid gap-8 lg:grid-cols-2">
-            {CREDIT_PRODUCTS.own.map((product) => (
-              <div
-                key={product.title}
-                className="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm transition-all hover:shadow-lg"
-              >
-                <div className="mb-4 text-4xl">{product.emoji}</div>
-                <h3 className="text-2xl font-bold text-fundafast-text">{product.title}</h3>
-                <p className="mt-3 text-fundafast-text-secondary leading-relaxed">
-                  {product.description}
-                </p>
-                <ul className="mt-6 space-y-2">
-                  {product.features.map((f) => (
-                    <li key={f} className="flex items-center gap-2 text-sm text-fundafast-text-secondary">
-                      <CheckCircle className="h-4 w-4 text-green-500" />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+            {CREDIT_PRODUCTS.own.map((product) => {
+              const Icon = ICON_MAP[product.icon];
+              return (
+                <div
+                  key={product.title}
+                  className="rounded-2xl border border-slate-100 bg-white p-8 shadow-sm transition-all hover:shadow-lg"
+                >
+                  {Icon && (
+                    <div className="mb-5 inline-flex rounded-xl bg-ff-surface p-3">
+                      <Icon className="h-7 w-7 text-ff-blue" />
+                    </div>
+                  )}
+                  <h3 className="text-2xl font-bold text-ff-text">{product.title}</h3>
+                  <p className="mt-3 leading-relaxed text-ff-text-muted">
+                    {product.description}
+                  </p>
+                  <ul className="mt-6 space-y-2">
+                    {product.features.map((f) => (
+                      <li key={f} className="flex items-center gap-2 text-sm text-ff-text-muted">
+                        <CheckCircle className="h-4 w-4 shrink-0 text-green-500" />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* Ally Credits */}
-      <section className="bg-fundafast-surface py-20">
+      <section className="bg-ff-surface py-20">
         <div className="mx-auto max-w-7xl px-6">
           <SectionHeader
-            title="Creditos por Convenio con Aliados"
-            subtitle="Financia la compra de productos y servicios con nuestros aliados. Pregunta por el credito FundaFast en el punto de venta."
+            title="Créditos por Convenio con Aliados"
+            subtitle="Financia la compra de productos y servicios con nuestros aliados. Pregunta por el crédito FundaFast en el punto de venta."
           />
           <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {CREDIT_PRODUCTS.allies.map((ally) => (
               <div
                 key={ally.name}
-                className="flex flex-col items-center rounded-2xl border border-gray-100 bg-white p-8 text-center shadow-sm transition-all hover:shadow-lg"
+                className="flex flex-col items-center rounded-2xl border border-slate-100 bg-white p-8 text-center shadow-sm transition-all hover:shadow-lg"
               >
                 <div className="relative mb-6 h-16 w-32">
                   <Image
@@ -102,8 +111,8 @@ export default function CreditosPage() {
                     className="object-contain"
                   />
                 </div>
-                <h3 className="text-lg font-bold text-fundafast-text">{ally.name}</h3>
-                <p className="mt-3 text-sm text-fundafast-text-secondary leading-relaxed">
+                <h3 className="text-lg font-bold text-ff-text">{ally.name}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-ff-text-muted">
                   {ally.description}
                 </p>
               </div>

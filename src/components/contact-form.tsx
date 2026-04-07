@@ -33,7 +33,7 @@ export function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
       <div>
-        <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-fundafast-text">
+        <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-ff-text">
           Nombre Completo
         </label>
         <input
@@ -46,7 +46,7 @@ export function ContactForm() {
         />
       </div>
       <div>
-        <label htmlFor="phone" className="mb-1.5 block text-sm font-medium text-fundafast-text">
+        <label htmlFor="phone" className="mb-1.5 block text-sm font-medium text-ff-text">
           Tu Celular
         </label>
         <input
@@ -59,7 +59,7 @@ export function ContactForm() {
         />
       </div>
       <div>
-        <label htmlFor="subject" className="mb-1.5 block text-sm font-medium text-fundafast-text">
+        <label htmlFor="subject" className="mb-1.5 block text-sm font-medium text-ff-text">
           Asunto
         </label>
         <input
@@ -72,7 +72,7 @@ export function ContactForm() {
         />
       </div>
       <div>
-        <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-fundafast-text">
+        <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-ff-text">
           Mensaje
         </label>
         <textarea
@@ -81,12 +81,12 @@ export function ContactForm() {
           rows={5}
           required
           className="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm transition-colors focus:border-ff-blue focus:outline-none focus:ring-2 focus:ring-ff-blue/20 resize-none"
-          placeholder="Escribe tu mensaje aqui..."
+          placeholder="Escribe tu mensaje aquí..."
         />
       </div>
       <button
         type="submit"
-        className="inline-flex items-center gap-2 rounded-lg bg-fundafast-orange px-8 py-3 font-semibold text-white transition-all hover:bg-fundafast-orange-hover hover:shadow-lg"
+        className="inline-flex items-center gap-2 rounded-lg bg-ff-red px-8 py-3 font-semibold text-white transition-all hover:bg-ff-red-hover hover:shadow-lg"
       >
         <Send className="h-4 w-4" />
         Enviar Mensaje

@@ -11,7 +11,7 @@ export function Footer() {
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-6 sm:flex-row">
           <div>
             <p className="text-lg font-bold text-white">¿Listo para impulsar tu tienda?</p>
-            <p className="text-sm text-red-100">Solicita tu Credifast hoy — sin tramites, sin complicaciones.</p>
+            <p className="text-sm text-red-100">Solicita tu Credifast hoy — sin trámites, sin complicaciones.</p>
           </div>
           <div className="flex gap-3">
             <a
@@ -48,7 +48,7 @@ export function Footer() {
               <span className="text-lg font-bold text-white">FundaFast</span>
             </div>
             <p className="mt-4 text-sm leading-relaxed text-blue-200">
-              Contribuimos al desarrollo socioeconomico de los tenderos y sus familias en el suroccidente colombiano.
+              Contribuimos al desarrollo socioeconómico de los tenderos y sus familias en el suroccidente colombiano.
             </p>
             <div className="mt-5 flex gap-3">
               <a

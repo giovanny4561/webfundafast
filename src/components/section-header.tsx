@@ -15,7 +15,7 @@ export function SectionHeader({
     <div className={centered ? "text-center" : ""}>
       <h2
         className={`text-3xl font-bold tracking-tight sm:text-4xl ${
-          light ? "text-white" : "text-fundafast-text"
+          light ? "text-white" : "text-ff-text"
         }`}
       >
         {title}
@@ -23,7 +23,7 @@ export function SectionHeader({
       {subtitle && (
         <p
           className={`mt-4 max-w-2xl text-lg ${centered ? "mx-auto" : ""} ${
-            light ? "text-blue-100" : "text-fundafast-text-secondary"
+            light ? "text-blue-100" : "text-ff-text-muted"
           }`}
         >
           {subtitle}

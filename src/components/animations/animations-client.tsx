@@ -59,6 +59,10 @@ export function AnimationsClient() {
             return;
           }
 
+          // Set initial hidden state for all batch elements immediately
+          // so they don't flash visible before their ScrollTrigger fires
+          gsap.set(".anim-batch", { opacity: 0, y: 38 });
+
           // ── 1. HERO entrance — staggered timeline ─────────────────────
           const heroTl = gsap.timeline({
             defaults: { ease: "power3.out" },
@@ -88,7 +92,9 @@ export function AnimationsClient() {
           const statNums = gsap.utils.toArray<HTMLElement>(".anim-stat-number");
           statNums.forEach((el) => {
             const raw = el.dataset.value ?? "";
-            const num = parseFloat(raw.replace(/[^0-9.]/g, ""));
+            const numStr = raw.replace(/[^0-9.]/g, "");
+            const suffix = raw.replace(/^[0-9.]*/, ""); // e.g. "%" from "100%"
+            const num = parseFloat(numStr);
             if (isNaN(num)) return;
 
             const obj = { val: 0 };
@@ -102,9 +108,9 @@ export function AnimationsClient() {
                   duration: 1.4,
                   ease: "power2.out",
                   onUpdate() {
-                    el.textContent = Number.isInteger(num)
+                    el.textContent = (Number.isInteger(num)
                       ? Math.round(obj.val).toString()
-                      : obj.val.toFixed(1);
+                      : obj.val.toFixed(1)) + suffix;
                   },
                 });
               },
@@ -139,25 +145,23 @@ export function AnimationsClient() {
             });
           });
 
-          // ── 4. Batch reveals for all grid cards ───────────────────────
-          // ScrollTrigger.batch groups elements entering ~same viewport window
-          // and fires staggered animation in one coordinated call — more
-          // performant than one ScrollTrigger per element.
-          ScrollTrigger.batch(".anim-batch", {
-            interval: 0.1,       // 100ms collection window
-            batchMax: 6,         // max 6 per batch (one grid row)
-            start: "top 87%",
-            once: true,
-            onEnter: (batch) => {
-              gsap.from(batch, {
-                opacity: 0,
-                y: 38,
-                duration: 0.5,
-                ease: "power2.out",
-                stagger: 0.08,
-                overwrite: true,
-              });
-            },
+          // ── 4. Grid card reveals — per-card trigger ───────────────────
+          // Each card gets its own ScrollTrigger so it animates exactly when
+          // IT enters the viewport — no stagger timing mismatch across rows.
+          // On desktop all 4 cards share the same Y so they fire simultaneously.
+          gsap.utils.toArray<HTMLElement>(".anim-batch").forEach((card) => {
+            gsap.to(card, {
+              opacity: 1,
+              y: 0,
+              duration: 0.5,
+              ease: "power2.out",
+              overwrite: true,
+              scrollTrigger: {
+                trigger: card,
+                start: "top 92%",
+                once: true,
+              },
+            });
           });
 
           // ── 5. How-it-works: connector line draw + steps ──────────────

@@ -2,7 +2,7 @@
 
 export const NAV_LINKS = [
   { label: "Inicio", href: "/" },
-  { label: "Quienes Somos", href: "/quienes-somos" },
+  { label: "Quiénes Somos", href: "/quienes-somos" },
   {
     label: "Servicios",
     href: "#",
@@ -78,14 +78,14 @@ export const CREDIT_PRODUCTS = {
   own: [
     {
       title: "Microcrédito",
-      emoji: "🏪",
+      icon: "Store",
       description:
         "Diseñado para impulsar negocios pequeños como tiendas de barrio, panaderías y otros emprendimientos. Capital para crecer, reabastecer inventario o expandir tu local.",
       features: ["Fácil aprobación", "Cuotas flexibles", "Enfoque en crecimiento local"],
     },
     {
       title: "Crédito Susolución",
-      emoji: "✨",
+      icon: "Handshake",
       description:
         "Crédito exclusivo para empleados de FundaFast y Distritiendas. Tasas preferenciales y descuento por nómina.",
       features: [

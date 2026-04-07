@@ -44,14 +44,14 @@ export default function SegurosPage() {
 
       <HeroSection
         title="Convenios de Seguros"
-        subtitle="Valoramos tu tranquilidad y la de tu familia. A traves de nuestros aliados estrategicos, te brindamos proteccion integral."
+        subtitle="Valoramos tu tranquilidad y la de tu familia. A través de nuestros aliados estratégicos, te brindamos protección integral."
       />
 
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-6">
           <SectionHeader
-            title="Nuestras Soluciones de Proteccion"
-            subtitle="Asegura tu credito y tu bienestar con coberturas disenadas para ti."
+            title="Nuestras Soluciones de Protección"
+            subtitle="Asegura tu crédito y tu bienestar con coberturas diseñadas para ti."
           />
           <div className="mt-14 space-y-8">
             {INSURANCE_PRODUCTS.map((product) => (
@@ -69,10 +69,10 @@ export default function SegurosPage() {
                 </div>
                 <div className="flex-1">
                   <div className="flex flex-wrap items-center gap-3">
-                    <h3 className="text-xl font-bold text-fundafast-text">{product.title}</h3>
+                    <h3 className="text-xl font-bold text-ff-text">{product.title}</h3>
                     <Badge variant={product.badgeVariant}>{product.badge}</Badge>
                   </div>
-                  <p className="mt-3 text-fundafast-text-secondary leading-relaxed">
+                  <p className="mt-3 text-ff-text-muted leading-relaxed">
                     {product.description}
                   </p>
                 </div>

@@ -26,10 +26,10 @@ export function RevistaCard({ edition, date, cover, pdf }: RevistaCardProps) {
       </div>
       <div className="flex items-center justify-between p-5">
         <div>
-          <h3 className="font-bold text-fundafast-text">Edicion N° {edition}</h3>
-          <p className="text-sm text-fundafast-text-secondary">{date}</p>
+          <h3 className="font-bold text-ff-text">Edicion N° {edition}</h3>
+          <p className="text-sm text-ff-text-muted">{date}</p>
         </div>
-        <ExternalLink className="h-4 w-4 text-fundafast-blue opacity-0 transition-opacity group-hover:opacity-100" />
+        <ExternalLink className="h-4 w-4 text-ff-blue opacity-0 transition-opacity group-hover:opacity-100" />
       </div>
     </a>
   );
