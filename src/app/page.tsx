@@ -302,19 +302,28 @@ export default function HomePage() {
           <div className="anim-heading text-center">
             <span className="inline-block rounded-full bg-white px-4 py-1 text-xs font-bold uppercase tracking-widest text-ff-blue">Cómo Funciona</span>
             <h2 className="mt-3 text-3xl font-bold text-ff-text sm:text-4xl">Tres pasos para tu crédito</h2>
+            <p className="mx-auto mt-4 max-w-xl text-ff-text-muted">Sin formularios complicados. Solo visita una sede y un asesor te guía en todo el proceso.</p>
           </div>
 
-          <div className="relative mt-14">
-            {/* Connector line */}
-            <div className="anim-connector absolute left-0 right-0 top-8 hidden h-px bg-gradient-to-r from-transparent via-ff-blue/30 to-transparent lg:block" />
+          <div className="relative mt-16">
+            {/* Connector line desktop */}
+            <div className="anim-connector absolute left-[16.66%] right-[16.66%] top-10 hidden h-0.5 bg-gradient-to-r from-ff-red via-ff-blue to-ff-blue lg:block" />
             <div className="grid gap-8 lg:grid-cols-3">
               {HOW_IT_WORKS.map((step, i) => (
-                <div key={step.step} className="anim-step relative flex flex-col items-center text-center">
-                  <div className={`relative z-10 flex h-16 w-16 items-center justify-center rounded-2xl font-extrabold text-xl shadow-lg ${i === 0 ? "bg-ff-red text-white shadow-red-200" : "bg-ff-blue text-white shadow-blue-200"}`}>
+                <div key={step.step} className="anim-step group relative flex flex-col items-center text-center">
+                  {/* Step number bubble */}
+                  <div className={`relative z-10 flex h-20 w-20 items-center justify-center rounded-full border-4 border-ff-surface font-black text-2xl shadow-xl transition-transform group-hover:scale-110 ${
+                    i === 0 ? "bg-ff-red text-white shadow-red-200" :
+                    i === 1 ? "bg-ff-blue text-white shadow-blue-200" :
+                    "bg-ff-blue-dark text-white shadow-blue-300"
+                  }`}>
                     {step.step}
                   </div>
-                  <h3 className="mt-5 text-lg font-bold text-ff-text">{step.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-ff-text-muted">{step.desc}</p>
+                  {/* Card */}
+                  <div className="mt-6 w-full rounded-2xl border border-slate-100 bg-white p-6 shadow-sm transition-all group-hover:shadow-md">
+                    <h3 className="text-lg font-bold text-ff-text">{step.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-ff-text-muted">{step.desc}</p>
+                  </div>
                 </div>
               ))}
             </div>

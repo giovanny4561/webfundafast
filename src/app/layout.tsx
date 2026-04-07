@@ -3,6 +3,8 @@ import { IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { WhatsAppButton } from "@/components/whatsapp-button";
+import { CookieBanner } from "@/components/cookie-banner";
 
 const ibmPlexSans = IBM_Plex_Sans({
   subsets: ["latin"],
@@ -44,6 +46,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <WhatsAppButton />
+        <CookieBanner />
       </body>
     </html>
   );

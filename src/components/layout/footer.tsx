@@ -115,19 +115,22 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-2 border-t border-white/10 pt-6 text-xs text-blue-300 sm:flex-row">
-          <p suppressHydrationWarning>&copy; {new Date().getFullYear()} FundaFast S.A.S. | Todos los derechos reservados</p>
-          <p className="flex items-center gap-1.5">
-            Hecho con <Heart className="h-3.5 w-3.5 fill-ff-red text-ff-red" /> por{" "}
-            <a
-              href="https://serestudiobranding.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white transition-colors"
-            >
-              Ser Studio Branding
-            </a>
-          </p>
+        <div className="mt-12 border-t border-white/10 pt-6">
+          <div className="flex flex-col items-center justify-between gap-3 text-xs text-blue-300 sm:flex-row">
+            <p suppressHydrationWarning>&copy; {new Date().getFullYear()} FundaFast S.A.S. | Todos los derechos reservados</p>
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <Link href="/politica-privacidad" className="hover:text-white transition-colors">Política de Privacidad</Link>
+              <Link href="/terminos" className="hover:text-white transition-colors">Términos y Condiciones</Link>
+            </div>
+          </div>
+          <div className="mt-3 text-center">
+            <p className="flex items-center justify-center gap-1.5 text-xs text-blue-400">
+              Hecho con <Heart className="h-3 w-3 fill-ff-red text-ff-red" /> por{" "}
+              <a href="https://serestudiobranding.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                Ser Studio Branding
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </footer>
