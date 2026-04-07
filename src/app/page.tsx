@@ -3,7 +3,8 @@ import Image from "next/image";
 import {
   Zap, Shield, Users, GraduationCap, Building,
   CheckCircle, MapPin, Phone, ArrowRight, Star,
-  Handshake, Clock, BadgeCheck, ChevronRight
+  Handshake, Clock, BadgeCheck, ChevronRight,
+  CreditCard, UserCheck, Store, ChevronDown, ChevronUp
 } from "lucide-react";
 import { SEDES, PSE_URL } from "@/lib/constants";
 import { SchemaScript } from "@/components/schema-script";
@@ -11,6 +12,7 @@ import {
   buildOrganizationSchema,
   buildWebSiteSchema,
   buildLocalBusinessSchemas,
+  buildFaqSchema,
 } from "@/lib/schema";
 
 const BENEFITS = [
@@ -41,6 +43,79 @@ const ALLIES = [
   { name: "Bravo", logo: "/images/logo-bravo.png" },
 ];
 
+const REQUIREMENTS = [
+  {
+    icon: UserCheck,
+    title: "Mayor de edad",
+    desc: "Ten a la mano tu cédula de ciudadanía vigente.",
+  },
+  {
+    icon: Store,
+    title: "Ser tendero o comerciante",
+    desc: "Atiende una tienda de barrio, panadería u otro negocio en el suroccidente colombiano.",
+  },
+  {
+    icon: Building,
+    title: "Pertenecer a Distritiendas",
+    desc: "Haz parte del ecosistema de distribución más grande del suroccidente.",
+  },
+  {
+    icon: MapPin,
+    title: "Visitar una sede",
+    desc: "Acércate a nuestras oficinas en Cali, Pasto, Palmira o Pereira.",
+  },
+];
+
+const WHY_US = [
+  {
+    title: "Atención presencial",
+    desc: "4 sedes físicas en Cali, Pasto, Palmira y Pereira. Siempre hay un asesor listo para ayudarte.",
+    icon: MapPin,
+    color: "bg-blue-50 text-ff-blue",
+  },
+  {
+    title: "Pago en línea con PSE",
+    desc: "Paga tus cuotas desde cualquier banco colombiano a través del portal Aval Pay Center.",
+    icon: CreditCard,
+    color: "bg-red-50 text-ff-red",
+  },
+  {
+    title: "Ecosistema Distritiendas",
+    desc: "Somos el brazo financiero del ecosistema Distritiendas. Conocemos el negocio del tendero.",
+    icon: Handshake,
+    color: "bg-green-50 text-green-600",
+  },
+  {
+    title: "Seguros con grandes aliados",
+    desc: "Convenios con Pan American Life y Funeraria Los Olivos para proteger a tu familia.",
+    icon: Shield,
+    color: "bg-purple-50 text-purple-600",
+  },
+];
+
+const FAQS = [
+  {
+    question: "¿En qué ciudades puedo solicitar mi crédito?",
+    answer: "Tenemos sedes en Cali (Cl. 30 Nte. #5N-07), Pasto (Calle 16 #21A-53), Palmira (CR 34 #31-35) y Pereira (Calle 13 #15-110). Visita la más cercana y un asesor te atenderá.",
+  },
+  {
+    question: "¿Qué es el Credifast?",
+    answer: "Credifast es nuestro producto de microcrédito diseñado para tenderos y comerciantes: capital para reabastecer inventario, expandir tu local o cubrir imprevistos, con fácil aprobación y cuotas flexibles.",
+  },
+  {
+    question: "¿Cómo puedo pagar mi cuota?",
+    answer: "Puedes pagar en línea a través de PSE en el portal Aval Pay Center, disponible para todos los bancos colombianos. También puedes acercarte directamente a cualquiera de nuestras 4 sedes.",
+  },
+  {
+    question: "¿Qué seguros ofrecen?",
+    answer: "Ofrecemos tres coberturas: Protección de Crédito por Fallecimiento (con Pan American Life), Plan Exequial con Funeraria Los Olivos, y Servicios de Salud y Orientación Médica (titular + 5 asegurados).",
+  },
+  {
+    question: "¿Qué es el crédito Susolución?",
+    answer: "El Crédito Susolución es un producto exclusivo para empleados de FundaFast y Distritiendas, con tasas preferenciales y descuento directo por nómina.",
+  },
+];
+
 export default function HomePage() {
   return (
     <>
@@ -48,6 +123,7 @@ export default function HomePage() {
       <SchemaScript schema={buildOrganizationSchema()} />
       <SchemaScript schema={buildWebSiteSchema()} />
       <SchemaScript schema={buildLocalBusinessSchemas()} />
+      <SchemaScript schema={buildFaqSchema(FAQS)} />
 
       {/* ─── HERO ─── */}
       <section className="relative overflow-hidden bg-gradient-to-br from-ff-blue-dark via-ff-blue to-blue-600">
@@ -74,7 +150,7 @@ export default function HomePage() {
               </h1>
 
               <p className="mt-5 text-lg leading-relaxed text-blue-100 sm:text-xl">
-                Microcreditos rapidos, seguros y diseñados para tenderos colombianos. Sin tramites complicados — solo el impulso que tu negocio merece.
+                Microcréditos rápidos, seguros y diseñados para tenderos colombianos. Sin trámites complicados — solo el impulso que tu negocio merece.
               </p>
 
               {/* Benefit badges */}
@@ -168,15 +244,15 @@ export default function HomePage() {
           <div className="text-center">
             <span className="inline-block rounded-full bg-ff-surface px-4 py-1 text-xs font-bold uppercase tracking-widest text-ff-blue">Nuestros Servicios</span>
             <h2 className="mt-3 text-3xl font-bold text-ff-text sm:text-4xl">Todo lo que necesita tu tienda</h2>
-            <p className="mx-auto mt-4 max-w-xl text-ff-text-muted">Soluciones financieras y de proteccion diseñadas para el gremio tendero colombiano.</p>
+            <p className="mx-auto mt-4 max-w-xl text-ff-text-muted">Soluciones financieras y de protección diseñadas para el gremio tendero colombiano.</p>
           </div>
 
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { icon: Zap, title: "Credifast", desc: "Microcreditos rapidos para reabastecer inventario, expandir tu local o cubrir imprevistos.", href: "/creditos", color: "text-ff-red bg-red-50" },
-              { icon: Handshake, title: "Su Solucion", desc: "Credito exclusivo para empleados de FundaFast y Distritiendas con descuento por nomina.", href: "/creditos", color: "text-ff-blue bg-ff-surface" },
-              { icon: Shield, title: "Seguros", desc: "Proteccion integral con Pan American Life y Funeraria Los Olivos para ti y tu familia.", href: "/seguros", color: "text-emerald-600 bg-emerald-50" },
-              { icon: Building, title: "Fundacion", desc: "Proyectos de impacto social y capacitacion para el desarrollo del gremio tendero.", href: "/quienes-somos", color: "text-purple-600 bg-purple-50" },
+              { icon: Zap, title: "Credifast", desc: "Microcréditos rápidos para reabastecer inventario, expandir tu local o cubrir imprevistos.", href: "/creditos", color: "text-ff-red bg-red-50" },
+              { icon: Handshake, title: "Su Solución", desc: "Crédito exclusivo para empleados de FundaFast y Distritiendas con descuento por nómina.", href: "/creditos", color: "text-ff-blue bg-ff-surface" },
+              { icon: Shield, title: "Seguros", desc: "Protección integral con Pan American Life y Funeraria Los Olivos para ti y tu familia.", href: "/seguros", color: "text-emerald-600 bg-emerald-50" },
+              { icon: Building, title: "Fundación", desc: "Proyectos de impacto social y capacitación para el desarrollo del gremio tendero.", href: "/quienes-somos", color: "text-purple-600 bg-purple-50" },
             ].map((s) => (
               <Link
                 key={s.title}
@@ -202,8 +278,8 @@ export default function HomePage() {
       <section className="bg-ff-surface py-20">
         <div className="mx-auto max-w-7xl px-6">
           <div className="text-center">
-            <span className="inline-block rounded-full bg-white px-4 py-1 text-xs font-bold uppercase tracking-widest text-ff-blue">Como Funciona</span>
-            <h2 className="mt-3 text-3xl font-bold text-ff-text sm:text-4xl">Tres pasos para tu credito</h2>
+            <span className="inline-block rounded-full bg-white px-4 py-1 text-xs font-bold uppercase tracking-widest text-ff-blue">Cómo Funciona</span>
+            <h2 className="mt-3 text-3xl font-bold text-ff-text sm:text-4xl">Tres pasos para tu crédito</h2>
           </div>
 
           <div className="relative mt-14">
@@ -238,7 +314,7 @@ export default function HomePage() {
       <section className="py-16">
         <div className="mx-auto max-w-7xl px-6">
           <p className="text-center text-sm font-semibold uppercase tracking-widest text-ff-text-muted">
-            Nuestros aliados estrategicos
+            Nuestros aliados estratégicos
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-8 sm:gap-12">
             {ALLIES.map((ally) => (
@@ -289,6 +365,91 @@ export default function HomePage() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── REQUISITOS ─── */}
+      <section className="py-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="text-center">
+            <span className="inline-block rounded-full bg-ff-surface px-4 py-1 text-xs font-bold uppercase tracking-widest text-ff-blue">Requisitos</span>
+            <h2 className="mt-3 text-3xl font-bold text-ff-text sm:text-4xl">¿Qué necesitas para solicitar tu crédito?</h2>
+            <p className="mx-auto mt-4 max-w-xl text-ff-text-muted">
+              Sin papeleos complicados. Solo los básicos para que podamos conocerte y apoyar tu negocio.
+            </p>
+          </div>
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {REQUIREMENTS.map((req, i) => (
+              <div key={req.title} className="relative rounded-2xl border border-slate-100 bg-white p-7 shadow-sm">
+                <div className="mb-1 text-3xl font-black text-slate-100 absolute top-5 right-6">0{i + 1}</div>
+                <div className="mb-4 inline-flex rounded-xl bg-ff-surface p-3">
+                  <req.icon className="h-6 w-6 text-ff-blue" />
+                </div>
+                <h3 className="text-base font-bold text-ff-text">{req.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-ff-text-muted">{req.desc}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-10 text-center">
+            <Link
+              href="/contacto"
+              className="inline-flex items-center gap-2 rounded-xl bg-ff-blue px-8 py-3.5 text-base font-bold text-white shadow-lg transition-all hover:bg-ff-blue-dark hover:shadow-xl"
+            >
+              Hablar con un asesor
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── POR QUÉ FUNDAFAST ─── */}
+      <section className="bg-ff-blue-dark py-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="text-center">
+            <span className="inline-block rounded-full bg-white/10 px-4 py-1 text-xs font-bold uppercase tracking-widest text-blue-300">¿Por qué elegirnos?</span>
+            <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">Lo que nos hace diferentes</h2>
+            <p className="mx-auto mt-4 max-w-xl text-blue-200">
+              No somos un banco. Somos una financiera hecha por y para el gremio tendero colombiano.
+            </p>
+          </div>
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {WHY_US.map((item) => (
+              <div key={item.title} className="rounded-2xl border border-white/10 bg-white/5 p-7 backdrop-blur-sm transition-all hover:bg-white/10">
+                <div className={`mb-5 inline-flex rounded-xl p-3 ${item.color}`}>
+                  <item.icon className="h-6 w-6" />
+                </div>
+                <h3 className="text-base font-bold text-white">{item.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-blue-200">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── FAQ ─── */}
+      <section className="py-20">
+        <div className="mx-auto max-w-3xl px-6">
+          <div className="text-center">
+            <span className="inline-block rounded-full bg-ff-surface px-4 py-1 text-xs font-bold uppercase tracking-widest text-ff-blue">Preguntas frecuentes</span>
+            <h2 className="mt-3 text-3xl font-bold text-ff-text sm:text-4xl">Resolvemos tus dudas</h2>
+          </div>
+          <div className="mt-12 divide-y divide-slate-100">
+            {FAQS.map((faq) => (
+              <details key={faq.question} className="group py-5">
+                <summary className="flex cursor-pointer list-none items-start justify-between gap-4">
+                  <span className="text-base font-semibold text-ff-text">{faq.question}</span>
+                  <ChevronDown className="mt-0.5 h-5 w-5 shrink-0 text-ff-blue transition-transform group-open:rotate-180" />
+                </summary>
+                <p className="mt-3 text-sm leading-relaxed text-ff-text-muted">{faq.answer}</p>
+              </details>
+            ))}
+          </div>
+          <div className="mt-8 rounded-2xl bg-ff-surface p-6 text-center">
+            <p className="text-sm text-ff-text-muted">¿Tienes más preguntas?</p>
+            <Link href="/contacto" className="mt-2 inline-flex items-center gap-1.5 text-sm font-semibold text-ff-blue hover:underline">
+              Escríbenos o visita una sede <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
           </div>
         </div>
       </section>
