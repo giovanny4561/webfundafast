@@ -5,9 +5,10 @@ import { RevistaCard } from "@/components/revista-card";
 import { REVISTAS } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "La Tienda - Hemeroteca Digital",
+  title: "Revista La Tienda – Recursos para Tenderos Colombia",
   description:
-    "Archivo digital de la revista La Tienda de FundaFast. Noticias, tendencias y analisis del sector comercio.",
+    "Descarga las ediciones de La Tienda, la revista de FundaFast para tenderos. Noticias, tendencias y consejos del sector comercio en Colombia.",
+  alternates: { canonical: "/la-tienda" },
 };
 
 export default function LaTiendaPage() {

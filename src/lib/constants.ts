@@ -44,54 +44,54 @@ export const SERVICES = [
     icon: "Zap",
     title: "Credifast",
     description:
-      "Microcreditos rapidos y flexibles disenados para las necesidades unicas de tu negocio.",
+      "Microcréditos rápidos y flexibles diseñados para las necesidades únicas de tu negocio.",
     href: "/creditos",
-    cta: "Explorar Creditos",
+    cta: "Explorar Créditos",
   },
   {
     icon: "Handshake",
-    title: "Su Solucion",
+    title: "Su Solución",
     description:
-      "Programas de apoyo, asesoria y herramientas para optimizar la gestion y rentabilidad de tu tienda.",
+      "Programas de apoyo, asesoría y herramientas para optimizar la gestión y rentabilidad de tu tienda.",
     href: "/creditos",
-    cta: "Ver Asesorias",
+    cta: "Ver Asesorías",
   },
   {
     icon: "Shield",
     title: "Seguros",
     description:
-      "Proteccion integral para ti y tu familia con nuestros aliados estrategicos.",
+      "Protección integral para ti y tu familia con nuestros aliados estratégicos.",
     href: "/seguros",
     cta: "Ver Seguros",
   },
   {
     icon: "Building",
-    title: "Nuestra Fundacion",
+    title: "Nuestra Fundación",
     description:
       "Proyectos de impacto social que contribuyen al bienestar de la comunidad tendera.",
     href: "/quienes-somos",
-    cta: "Saber Mas",
+    cta: "Saber Más",
   },
 ] as const;
 
 export const CREDIT_PRODUCTS = {
   own: [
     {
-      title: "Microcredito",
+      title: "Microcrédito",
       emoji: "🏪",
       description:
-        "Disenado para impulsar negocios pequenos como tiendas de barrio, panaderias y otros emprendimientos. Capital para crecer, reabastecer inventario o expandir tu local.",
-      features: ["Facil aprobacion", "Cuotas flexibles", "Enfoque en crecimiento local"],
+        "Diseñado para impulsar negocios pequeños como tiendas de barrio, panaderías y otros emprendimientos. Capital para crecer, reabastecer inventario o expandir tu local.",
+      features: ["Fácil aprobación", "Cuotas flexibles", "Enfoque en crecimiento local"],
     },
     {
-      title: "Credito Susolucion",
+      title: "Crédito Susolución",
       emoji: "✨",
       description:
-        "Credito exclusivo para empleados de FundaFast y Distritiendas. Tasas preferenciales y descuento por nomina.",
+        "Crédito exclusivo para empleados de FundaFast y Distritiendas. Tasas preferenciales y descuento por nómina.",
       features: [
         "Tasas especiales",
-        "Descuento directo por nomina",
-        "Rapida respuesta",
+        "Descuento directo por nómina",
+        "Rápida respuesta",
       ],
     },
   ],
@@ -99,13 +99,13 @@ export const CREDIT_PRODUCTS = {
     {
       name: "Moto 8",
       logo: "/images/logo-moto8.png",
-      description: "Financiacion directa para adquisicion de motocicletas con tasas preferenciales.",
+      description: "Financiación directa para adquisición de motocicletas con tasas preferenciales.",
     },
     {
       name: "Grupo Indufrial",
       logo: "/images/logo-indufrial.png",
       description:
-        "Credito facil y rapido para congeladores, neveras exhibidoras y equipos refrigerantes.",
+        "Crédito fácil y rápido para congeladores, neveras exhibidoras y equipos refrigerantes.",
     },
     {
       name: "Bravo",
@@ -118,11 +118,11 @@ export const CREDIT_PRODUCTS = {
 
 export const INSURANCE_PRODUCTS = [
   {
-    title: "Proteccion de Credito por Fallecimiento",
+    title: "Protección de Crédito por Fallecimiento",
     logo: "/images/logo-pan-american.png",
     logoAlt: "Pan American Life",
     description:
-      "Tu credito queda automaticamente asegurado. En caso de fallecimiento del titular, el seguro cubre el saldo restante.",
+      "Tu crédito queda automáticamente asegurado. En caso de fallecimiento del titular, el seguro cubre el saldo restante.",
     badge: "Seguro Obligatorio",
     badgeVariant: "default" as const,
   },
@@ -131,16 +131,16 @@ export const INSURANCE_PRODUCTS = [
     logo: "/images/logo-los-olivos.png",
     logoAlt: "Funeraria Los Olivos",
     description:
-      "Plan Exequial completo con Funeraria Los Olivos. Apoyo y soporte en los momentos mas dificiles.",
+      "Plan Exequial completo con Funeraria Los Olivos. Apoyo y soporte en los momentos más difíciles.",
     badge: "Plan Opcional",
     badgeVariant: "secondary" as const,
   },
   {
-    title: "Servicios de Salud y Orientacion Medica",
+    title: "Servicios de Salud y Orientación Médica",
     logo: "/images/logo-pan-american.png",
     logoAlt: "Pan American Life + Prevemed",
     description:
-      "Titular + 5 asegurados. Medicos, especialistas, laboratorios y opticas a precios especiales. Orientacion medica ilimitada.",
+      "Titular + 5 asegurados. Médicos, especialistas, laboratorios y ópticas a precios especiales. Orientación médica ilimitada.",
     badge: "Beneficio Adicional",
     badgeVariant: "outline" as const,
   },
@@ -154,12 +154,12 @@ export const REVISTAS = [
 ] as const;
 
 export const VACANCY = {
-  title: "Analista de Credito",
+  title: "Analista de Crédito",
   locations: "Cali - Pasto - Pereira - Palmira",
   requirements: [
-    "Experiencia: 1 ano minimo en cargos relacionados",
+    "Experiencia: 1 año mínimo en cargos relacionados",
     "Tipo de contrato: Indefinido",
-    "Requisito indispensable: contar con vehiculo particular (moto)",
+    "Requisito indispensable: contar con vehículo particular (moto)",
   ],
   contact: {
     email: "analistagh@fundafast.com.co",

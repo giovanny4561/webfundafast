@@ -11,20 +11,29 @@ const ibmPlexSans = IBM_Plex_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.fundafast.com.co"),
   title: {
-    default: "FundaFast S.A.S. - Su Socio en el Desarrollo",
+    default: "FundaFast – Microcrédito para Tenderos en Colombia",
     template: "%s | FundaFast S.A.S.",
   },
   description:
-    "Microcreditos rapidos y seguros para tenderos colombianos. Credifast: facil aprobacion, cuotas flexibles, 4 sedes en el suroccidente.",
-  keywords: ["FundaFast", "Credifast", "microcredito", "tenderos", "Cali", "Colombia", "Distritiendas"],
+    "Microcréditos rápidos para tenderos colombianos. Fácil aprobación, cuotas flexibles. 4 sedes: Cali, Pasto, Palmira y Pereira. Solicita tu Credifast hoy.",
+  keywords: ["FundaFast", "Credifast", "microcrédito", "tenderos", "Cali", "Colombia", "Distritiendas", "crédito para tiendas"],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "FundaFast S.A.S. - Su Socio en el Desarrollo",
-    description: "Microcreditos para tenderos colombianos. Facil, rapido y cercano.",
+    title: "FundaFast – Microcrédito para Tenderos en Colombia",
+    description: "Microcréditos rápidos para tenderos colombianos. Fácil aprobación, cuotas flexibles. 4 sedes en el suroccidente.",
     url: "https://www.fundafast.com.co",
     siteName: "FundaFast S.A.S.",
     locale: "es_CO",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "FundaFast – Microcrédito para Tenderos en Colombia",
+    description: "Microcréditos rápidos para tenderos colombianos. Fácil aprobación, cuotas flexibles.",
   },
 };
 

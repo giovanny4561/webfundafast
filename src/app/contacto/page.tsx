@@ -5,15 +5,37 @@ import { SedeCard } from "@/components/sede-card";
 import { SectionHeader } from "@/components/section-header";
 import { SEDES, CONTACT_INFO } from "@/lib/constants";
 import { Mail, Phone, MessageCircle } from "lucide-react";
+import { SchemaScript } from "@/components/schema-script";
+import { buildBreadcrumbSchema, buildWebPageSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Contacto",
-  description: "Contacta a FundaFast S.A.S. Estamos en Cali, Pasto, Palmira y Pereira.",
+  title: "Contacto y Sedes FundaFast | Cali, Pasto, Palmira",
+  description:
+    "Contáctanos por WhatsApp, teléfono o email. Sedes en Cali, Pasto, Palmira y Pereira. Asesores listos para ayudarte a solicitar tu microcrédito.",
+  alternates: { canonical: "/contacto" },
 };
 
+const DOMAIN = "https://www.fundafast.com.co";
+
 export default function ContactoPage() {
+  const breadcrumb = buildBreadcrumbSchema([
+    { name: "Inicio", url: DOMAIN },
+    { name: "Contacto", url: `${DOMAIN}/contacto` },
+  ]);
+
+  const webpage = buildWebPageSchema({
+    url: `${DOMAIN}/contacto`,
+    name: "Contacto — FundaFast S.A.S.",
+    description:
+      "Contacta a FundaFast S.A.S. Estamos en Cali, Pasto, Palmira y Pereira.",
+  });
+
   return (
     <>
+      {/* ─── SCHEMA ─── */}
+      <SchemaScript schema={breadcrumb} />
+      <SchemaScript schema={webpage} />
+
       <HeroSection
         title="Contactanos"
         subtitle="Estamos aqui para ayudarte. Escribenos y te responderemos lo antes posible."

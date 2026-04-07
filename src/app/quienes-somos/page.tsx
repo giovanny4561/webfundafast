@@ -2,12 +2,17 @@ import type { Metadata } from "next";
 import { HeroSection } from "@/components/hero-section";
 import { SectionHeader } from "@/components/section-header";
 import { Target, Eye, CheckCircle } from "lucide-react";
+import { SchemaScript } from "@/components/schema-script";
+import { buildBreadcrumbSchema, buildWebPageSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Quienes Somos",
+  title: "Quiénes Somos – FundaFast | Financiera para Tenderos",
   description:
-    "Conoce la mision, vision y objetivos de FundaFast S.A.S., tu socio en el desarrollo socioeconomico del gremio tendero.",
+    "FundaFast apoya el desarrollo de tenderos colombianos con microcréditos, asesoría y seguros. Conoce nuestra misión, visión y el equipo detrás.",
+  alternates: { canonical: "/quienes-somos" },
 };
+
+const DOMAIN = "https://www.fundafast.com.co";
 
 const OBJECTIVES = [
   "Fortalecer el desarrollo socioeconomico de nuestros clientes.",
@@ -19,8 +24,24 @@ const OBJECTIVES = [
 ];
 
 export default function QuienesSomosPage() {
+  const breadcrumb = buildBreadcrumbSchema([
+    { name: "Inicio", url: DOMAIN },
+    { name: "Quienes Somos", url: `${DOMAIN}/quienes-somos` },
+  ]);
+
+  const webpage = buildWebPageSchema({
+    url: `${DOMAIN}/quienes-somos`,
+    name: "Quienes Somos — FundaFast S.A.S.",
+    description:
+      "Conoce la mision, vision y objetivos de FundaFast S.A.S., tu socio en el desarrollo socioeconomico del gremio tendero.",
+  });
+
   return (
     <>
+      {/* ─── SCHEMA ─── */}
+      <SchemaScript schema={breadcrumb} />
+      <SchemaScript schema={webpage} />
+
       <HeroSection
         title="Quienes Somos"
         subtitle="Conoce la empresa que trabaja dia a dia por el bienestar de los tenderos colombianos."

@@ -4,16 +4,44 @@ import { HeroSection } from "@/components/hero-section";
 import { SectionHeader } from "@/components/section-header";
 import { INSURANCE_PRODUCTS } from "@/lib/constants";
 import { Badge } from "@/components/ui/badge";
+import { SchemaScript } from "@/components/schema-script";
+import {
+  buildBreadcrumbSchema,
+  buildInsuranceProductSchemas,
+  buildWebPageSchema,
+} from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Seguros",
+  title: "Seguros para Tenderos en Colombia",
   description:
-    "Convenios de seguros FundaFast: proteccion de credito, plan exequial Los Olivos y servicios de salud con Pan American Life.",
+    "Protección de crédito, plan exequial Los Olivos y servicios de salud con Pan American Life. Cobertura pensada para tenderos y sus familias.",
+  alternates: { canonical: "/seguros" },
 };
 
+const DOMAIN = "https://www.fundafast.com.co";
+
 export default function SegurosPage() {
+  const breadcrumb = buildBreadcrumbSchema([
+    { name: "Inicio", url: DOMAIN },
+    { name: "Seguros", url: `${DOMAIN}/seguros` },
+  ]);
+
+  const webpage = buildWebPageSchema({
+    url: `${DOMAIN}/seguros`,
+    name: "Convenios de Seguros — FundaFast S.A.S.",
+    description:
+      "Convenios de seguros FundaFast: proteccion de credito, plan exequial Los Olivos y servicios de salud con Pan American Life.",
+  });
+
+  const insuranceProducts = buildInsuranceProductSchemas();
+
   return (
     <>
+      {/* ─── SCHEMA ─── */}
+      <SchemaScript schema={breadcrumb} />
+      <SchemaScript schema={webpage} />
+      <SchemaScript schema={insuranceProducts} />
+
       <HeroSection
         title="Convenios de Seguros"
         subtitle="Valoramos tu tranquilidad y la de tu familia. A traves de nuestros aliados estrategicos, te brindamos proteccion integral."

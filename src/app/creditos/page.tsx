@@ -4,16 +4,44 @@ import { HeroSection } from "@/components/hero-section";
 import { SectionHeader } from "@/components/section-header";
 import { CREDIT_PRODUCTS } from "@/lib/constants";
 import { CheckCircle } from "lucide-react";
+import { SchemaScript } from "@/components/schema-script";
+import {
+  buildBreadcrumbSchema,
+  buildCreditProductSchemas,
+  buildWebPageSchema,
+} from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Creditos",
+  title: "Créditos para Tenderos en Colombia",
   description:
-    "Microcreditos rapidos, creditos por nomina y financiacion con aliados estrategicos para tenderos colombianos.",
+    "Microcréditos rápidos para tu tienda, crédito por nómina y financiación de motos y equipos. Fácil aprobación en Cali, Pasto, Palmira y Pereira.",
+  alternates: { canonical: "/creditos" },
 };
 
+const DOMAIN = "https://www.fundafast.com.co";
+
 export default function CreditosPage() {
+  const breadcrumb = buildBreadcrumbSchema([
+    { name: "Inicio", url: DOMAIN },
+    { name: "Creditos", url: `${DOMAIN}/creditos` },
+  ]);
+
+  const webpage = buildWebPageSchema({
+    url: `${DOMAIN}/creditos`,
+    name: "Creditos — FundaFast S.A.S.",
+    description:
+      "Microcreditos rapidos, creditos por nomina y financiacion con aliados estrategicos para tenderos colombianos.",
+  });
+
+  const creditProducts = buildCreditProductSchemas();
+
   return (
     <>
+      {/* ─── SCHEMA ─── */}
+      <SchemaScript schema={breadcrumb} />
+      <SchemaScript schema={webpage} />
+      <SchemaScript schema={creditProducts} />
+
       <HeroSection
         title="Productos de Credito"
         subtitle="Encuentra la solucion financiera perfecta para tus necesidades personales y empresariales."

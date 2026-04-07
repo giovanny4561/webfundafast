@@ -5,8 +5,10 @@ import { Briefcase, MapPin, CheckCircle, Mail, Phone } from "lucide-react";
 import { CTAButton } from "@/components/cta-button";
 
 export const metadata: Metadata = {
-  title: "Trabaja con Nosotros",
-  description: "Vacantes disponibles en FundaFast S.A.S. Unete a nuestro equipo.",
+  title: "Trabaja con FundaFast | Analista de Crédito Colombia",
+  description:
+    "Vacante: Analista de Crédito en Cali, Pasto, Pereira y Palmira. Contrato indefinido. Postúlate y únete al equipo FundaFast.",
+  alternates: { canonical: "/empleo" },
 };
 
 export default function EmpleoPage() {

@@ -116,7 +116,7 @@ export function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-2 border-t border-white/10 pt-6 text-xs text-blue-300 sm:flex-row">
-          <p>&copy; {new Date().getFullYear()} FundaFast S.A.S. | Todos los derechos reservados</p>
+          <p suppressHydrationWarning>&copy; {new Date().getFullYear()} FundaFast S.A.S. | Todos los derechos reservados</p>
           <p>Cali, Colombia — Ecosistema Distritiendas</p>
         </div>
       </div>

@@ -6,24 +6,30 @@ import {
   Handshake, Clock, BadgeCheck, ChevronRight
 } from "lucide-react";
 import { SEDES, PSE_URL } from "@/lib/constants";
+import { SchemaScript } from "@/components/schema-script";
+import {
+  buildOrganizationSchema,
+  buildWebSiteSchema,
+  buildLocalBusinessSchemas,
+} from "@/lib/schema";
 
 const BENEFITS = [
-  { icon: CheckCircle, text: "Facil aprobacion" },
-  { icon: Clock, text: "Atencion cercana" },
+  { icon: CheckCircle, text: "Fácil aprobación" },
+  { icon: Clock, text: "Atención cercana" },
   { icon: BadgeCheck, text: "Cuotas flexibles" },
-  { icon: Zap, text: "Respuesta rapida" },
+  { icon: Zap, text: "Respuesta rápida" },
 ];
 
 const STATS = [
   { number: "4", label: "Sedes en Colombia" },
   { number: "Cali", label: "Pasto · Palmira · Pereira" },
-  { number: "PSE", label: "Pago seguro en linea" },
+  { number: "PSE", label: "Pago seguro en línea" },
   { number: "100%", label: "Ecosistema Distritiendas" },
 ];
 
 const HOW_IT_WORKS = [
-  { step: "01", title: "Solicita tu credito", desc: "Visita una de nuestras sedes o contactanos. Sin formularios complicados." },
-  { step: "02", title: "Evaluacion rapida", desc: "Nuestro equipo evalua tu solicitud y te da respuesta en el menor tiempo posible." },
+  { step: "01", title: "Solicita tu crédito", desc: "Visita una de nuestras sedes o contáctanos. Sin formularios complicados." },
+  { step: "02", title: "Evaluación rápida", desc: "Nuestro equipo evalúa tu solicitud y te da respuesta en el menor tiempo posible." },
   { step: "03", title: "Recibe tu dinero", desc: "Una vez aprobado, recibe el dinero para impulsar tu tienda de barrio." },
 ];
 
@@ -38,6 +44,11 @@ const ALLIES = [
 export default function HomePage() {
   return (
     <>
+      {/* ─── SCHEMA ─── */}
+      <SchemaScript schema={buildOrganizationSchema()} />
+      <SchemaScript schema={buildWebSiteSchema()} />
+      <SchemaScript schema={buildLocalBusinessSchemas()} />
+
       {/* ─── HERO ─── */}
       <section className="relative overflow-hidden bg-gradient-to-br from-ff-blue-dark via-ff-blue to-blue-600">
         {/* Background pattern */}
